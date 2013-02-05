@@ -1,0 +1,10 @@
+{
+  "name": "NewApp",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "stylus": "*",
+    "nib": "*"
+  },
+  "devDependencies": {}
+}

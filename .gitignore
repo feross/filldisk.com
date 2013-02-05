@@ -1,0 +1,19 @@
+# Ignore compiled css assets
+css/
+
+# Ignore node_modules, use "npm shrinkwrap" instead
+node_modules/
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+.DS_Store
+Thumbs.db
+*.sublime-workspace
