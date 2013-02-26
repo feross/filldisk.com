@@ -24,13 +24,13 @@ function injectFrames(num) {
     body.appendChild(iframe)
 
     frameNum += 1
-    if (frameNum % 50 == 0) {
-      window.setTimeout(function () {
-        window.location.hash = frameNum + 1
-        window.location.reload()
-      }, 5000)
-      window.clearInterval(window.myInt)
-    }
+    // if (frameNum % 50 == 0) {
+    //   window.setTimeout(function () {
+    //     window.location.hash = frameNum + 1
+    //     window.location.reload()
+    //   }, 5000)
+    //   window.clearInterval(window.myInt)
+    // }
   }
 }
 
@@ -39,7 +39,7 @@ if (window.top == window.self) {
   window.myInt = window.setInterval(function () {
     injectFrames(5)
     div.innerHTML = 'Used ' + (frameNum * 5) + 'MB of space.'
-  }, 1500)
+  }, 50)
 
 // Sub frames
 } else {
