@@ -1,4 +1,4 @@
-# [filldisk.js](http://www.filldisk.com) - Masterful trolling with HTML5 localStorage
+# filldisk.js - Masterful trolling with HTML5 localStorage
 
 ### Use HTML5 localStorage to completely fill up Chrome/Safari/IE10 users' hard disks.
 
@@ -18,13 +18,13 @@ The [HTML5 localStorage](http://www.w3.org/TR/webstorage/) standard was develope
 
 However, the standard anticipated that sites might abuse this feature and advised that browsers limit the total amount of storage space that each origin could use. Quoting from the HTML5 spec:
 
-| User agents should limit the total amount of space allowed for storage areas.
+> User agents should limit the total amount of space allowed for storage areas.
 
 However, what if we get clever and make lots of subdomains like 1.filldisk.com, 2.filldisk.com, 3.filldisk.com, and so on? Should we get 5MB of space per subdomain? **The standard says no.**
 
-| User agents should guard against sites storing data under the origins other affiliated sites, e.g. storing up to the limit in a1.example.com, a2.example.com, a3.example.com, etc, circumventing the main example.com storage limit.
-|
-| A mostly arbitrary limit of five megabytes per origin is recommended.
+> User agents should guard against sites storing data under the origins other affiliated sites, e.g. storing up to the limit in a1.example.com, a2.example.com, a3.example.com, etc, circumventing the main example.com storage limit.
+>
+> A mostly arbitrary limit of five megabytes per origin is recommended.
 
 However, Chrome, Safari, and IE currently do not implement any such storage limit. Thus, cleverly coded websites effectively have unlimited storage space on their visitor's computer.
 
