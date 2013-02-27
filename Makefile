@@ -6,4 +6,4 @@ default:
 
 .PHONY : publish
 publish:
-	rsync -r -a -v -e "ssh -l feross -p 44444" --delete . box:/home/feross/www/feross.net/filldisk
+	rsync -r -a -v -e "ssh -l feross -p 44444" --delete . future:/home/feross/www/filldisk.com

