@@ -43,7 +43,9 @@
     }
 
     /**
-     * Generate a 2.5 MB string. This st
+     * Generate a 2.5 MB string.
+     * Note: This is not actually writing cat pictures to disk.
+     * (But I could do that if I wanted to.)
      */
 
     var n10b = '0123456789'
@@ -77,10 +79,10 @@
 
     window.parent.postMessage(frameNum, '*')
 
-
     /**
      * Redirect to the next subdomain!
      */
+
     if (shouldReclaim && frameNum > 1) {
       window.location = 'http://' + (frameNum - 1) + '.filldisk.com/frame.html?reclaim=' + shouldReclaim
     } else if (!shouldReclaim) {
