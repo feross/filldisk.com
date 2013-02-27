@@ -32,7 +32,7 @@ However, what if we get clever and make lots of subdomains like `1.filldisk.com`
 >
 > A mostly arbitrary limit of five megabytes per origin is recommended.
 
-However, Chrome, Safari, and IE currently do not implement any such storage limit. Thus, cleverly coded websites effectively have unlimited storage space on their visitor's computer.
+However, **Chrome, Safari, and IE currently do not implement any such storage limit**. Thus, cleverly coded websites effectively have unlimited storage space on their visitor's computer.
 
 I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include with the bug reports I filed. Star the bug reports here:
 
