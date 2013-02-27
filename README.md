@@ -7,9 +7,10 @@
 ## Features:
 
 - Fills up the user's hard disk on Chrome, Safari, and IE.
-- Tested on the latest Chrome (25), Safari (6), and IE (10).
-- For 32-bit browsers, like Chrome, the entire browser may crash before the disk is filled (this is actually worse than filling the disk, in some ways)
-- Does not work on Firefox, since Firefox's implementation of localStorage is good.
+- Fills up **1 GB every 16 seconds** on my Macbook Pro Retina (with solid state drive)
+- Tested with latest Chrome (25), Safari (6), IE (10).
+- For 32-bit browsers, like Chrome, **the entire browser may crash** before the disk is filled.
+- Does not work on Firefox, since Firefox's implementation of localStorage is smarter.
 - Includes a button to reclaim your disk space ;)
 
 ## How it works

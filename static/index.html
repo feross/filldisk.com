@@ -2,8 +2,11 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
   <style>
+    body { font-family: 'Arvo', serif; }
     iframe { border: 1px; height: 50px; width: 100%; }
+    button { font-size: 18px; padding: 10px; }
   </style>
 </head>
 <body>
@@ -23,7 +26,12 @@
 <button class="reclaim">Stop the madness!</button>
 (gives your disk space back)
 
-<p>Another hack by <a href="http://feross.org">Feross</a>.</p>
+<p>Works in Chrome, Safari, and IE. Firefox is safe.</p>
+
+<p>Another hack by <a href="http://feross.org">Feross</a>. Code is available <a href="https://github.com/feross/filldisk.js">on GitHub</a>.</p>
+
+<iframe src="http://ghbtns.com/github-btn.html?user=feross&amp;repo=filldisk.js&amp;type=watch&amp;count=true"
+  allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
 
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 
@@ -81,6 +89,7 @@ var reclaim = document.querySelector('.reclaim')
 reclaim.addEventListener('click', reclaimSpace, false)
 
 function reclaimSpace (event) {
+  reclaim.disabled = 'disabled'
   setFrame('http://' + localStorage.highest + '.filldisk.com/frame.html?reclaim=true')
 }
 
@@ -98,6 +107,7 @@ function setFrame (src) {
   frame.src = src
   document.getElementsByTagName('body')[0].appendChild(frame)
 }
+
 
 var cats = [
   '/cats/030827.png',
@@ -204,6 +214,7 @@ var cats = [
 
 var catIndex = 0
 var cat = document.querySelector('.cat')
+
 function setNextCat () {
   cat.src = cats[catIndex]
   catIndex += 1
