@@ -1,26 +1,32 @@
-# filldisk.js - Masterful trolling with HTML5 localStorage
+# `filldisk.js` - Masterful trolling with HTML5 localStorage
 
-### Use HTML5 localStorage to completely fill up Chrome/Safari/IE10 users' hard disks.
+#### Use HTML5 `localStorage` to completely fill up Chrome, Safari, and IE users' hard disks.
 
-### See the [demo](http://www.filldisk.com) at http://www.filldisk.com
+#### Check out the [demo](http://www.filldisk.com)!
 
 ## Features:
 
 - Fills up the user's hard disk on Chrome, Safari, and IE.
-- Tested with latest Chrome (25), Safari (6), IE (10).
-- For 32-bit browsers, like Chrome, the entire browser may crash before the disk is filled.
-- Does not work on Firefox, since Firefox's implementation of localStorage is smarter.
+- Tested on the latest Chrome (25), Safari (6), and IE (10).
+- For 32-bit browsers, like Chrome, the entire browser may crash before the disk is filled (this is actually worse than filling the disk, in some ways)
+- Does not work on Firefox, since Firefox's implementation of localStorage is good.
 - Includes a button to reclaim your disk space ;)
 
 ## How it works
 
 The [HTML5 localStorage](http://www.w3.org/TR/webstorage/) standard was developed to allow sites to store larger amounts of data (like 5-10 MB) than was previously allowed by cookies (like 4KB). The standard is supported in all modern browsers (Chrome, Firefox, Safari, IE, etc.).
 
-However, the standard anticipated that sites might abuse this feature and advised that browsers limit the total amount of storage space that each origin could use. Quoting from the HTML5 spec:
+The standard anticipated that sites might abuse this feature ;) and advised that browsers limit the total amount of storage space that each origin could use. Quoting from the HTML5 spec:
 
 > User agents should limit the total amount of space allowed for storage areas.
 
-However, what if we get clever and make lots of subdomains like 1.filldisk.com, 2.filldisk.com, 3.filldisk.com, and so on? Should we get 5MB of space per subdomain? **The standard says no.**
+The [current limits](http://en.wikipedia.org/wiki/Web_storage#Storage_size) are:
+
+- 2.5 MB per origin in Google Chrome
+- 5 MB per origin in Mozilla Firefox and Opera
+- 10 MB per origin in Internet Explorer
+
+However, what if we get clever and make lots of subdomains like `1.filldisk.com`, `2.filldisk.com`, `3.filldisk.com`, and so on? Should we get 5MB of space per subdomain? **The standard says no.**
 
 > User agents should guard against sites storing data under the origins other affiliated sites, e.g. storing up to the limit in a1.example.com, a2.example.com, a3.example.com, etc, circumventing the main example.com storage limit.
 >
@@ -35,7 +41,7 @@ I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include
 - link
 
 
-### MIT License
+## MIT License
 
 Copyright (c) 2012 [Feross Aboukhadijeh](http://feross.org)
 
