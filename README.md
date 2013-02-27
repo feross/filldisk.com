@@ -1,24 +1,41 @@
-# New project boilerplate
+# [filldisk.js](http://www.filldisk.com) - Masterful trolling with HTML5 localStorage
 
-### Guaranteed to decrease your Hacktivation Energy&trade; by over 9000!!
+### Use HTML5 localStorage to completely fill up Chrome/Safari/IE10 users' hard disks.
 
-### Features:
+### See the [demo](http://www.filldisk.com) at http://www.filldisk.com
 
-- Minimal HTML5 boilerplate with:
+## Features:
 
-  - Blank `main.js` file for a quick start.
-  - Useful `utils.js` file with handy functions.
-  - Latest [jQuery](http://jquery.com/) and [Underscore.js](http://underscorejs.org/).
+- Fills up the user's hard disk on Chrome, Safari, and IE.
+- Tested with latest Chrome (25), Safari (6), IE (10).
+- For 32-bit browsers, like Chrome, the entire browser may crash before the disk is filled.
+- Does not work on Firefox, since Firefox's implementation of localStorage is smarter.
+- Includes a button to reclaim your disk space ;)
 
-- [Stylus](http://learnboost.github.com/stylus/) and [Nib](http://visionmedia.github.com/nib/) for better CSS.
+## How it works
 
-  - Install Stylus/Nib with `npm install`
-  - Watch for changes with `make`
+The [HTML5 localStorage](http://www.w3.org/TR/webstorage/) standard was developed to allow sites to store larger amounts of data (like 5-10 MB) than was previously allowed by cookies (like 4KB). The standard is supported in all modern browsers (Chrome, Firefox, Safari, IE, etc.).
 
-- Default .gitignore
+However, the standard anticipated that sites might abuse this feature and advised that browsers limit the total amount of storage space that each origin could use. Quoting from the HTML5 spec:
+
+| User agents should limit the total amount of space allowed for storage areas.
+
+However, what if we get clever and make lots of subdomains like 1.filldisk.com, 2.filldisk.com, 3.filldisk.com, and so on? Should we get 5MB of space per subdomain? **The standard says no.**
+
+| User agents should guard against sites storing data under the origins other affiliated sites, e.g. storing up to the limit in a1.example.com, a2.example.com, a3.example.com, etc, circumventing the main example.com storage limit.
+|
+| A mostly arbitrary limit of five megabytes per origin is recommended.
+
+However, Chrome, Safari, and IE currently do not implement any such storage limit. Thus, cleverly coded websites effectively have unlimited storage space on their visitor's computer.
+
+I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include with the bug reports I filed. Star the bug reports here:
+
+- link
+- link
+- link
 
 
-### MIT License, yo
+### MIT License
 
 Copyright (c) 2012 [Feross Aboukhadijeh](http://feross.org)
 
