@@ -1,3 +1,7 @@
+if (!!navigator.mozGetUserMedia) {
+  alert("You're using Firefox, so you're safe. This demo won't work for you. Try Chrome, Safari, or IE.")
+}
+
 var mb = document.querySelector('.mb')
 
 window.addEventListener('message', onMessage, false)
