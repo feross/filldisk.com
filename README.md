@@ -8,7 +8,7 @@
 
 ## Features:
 
-- Fills up the user's hard disk on Chrome, Safari, Opera and IE.
+- Fills up the user's hard disk on Chrome, Safari (iOS and desktop), Opera and IE.
 - Fills up **1 GB every 16 seconds** on my Macbook Pro Retina (with solid state drive)
 - Tested with latest Chrome (25), Safari (6), Opera (12), IE (10).
 - For 32-bit browsers, like Chrome, **the entire browser may crash** before the disk is filled.
@@ -37,11 +37,12 @@ However, what if we get clever and make lots of subdomains like `1.filldisk.com`
 
 However, **Chrome, Safari, and IE currently do not implement any such storage limit**. Thus, cleverly coded websites effectively have unlimited storage space on their visitor's computer.
 
-I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include with the bug reports I filed. Star the bug reports here:
+I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include with the bug reports I filed. Bug reports here:
 
 - [Chromium bug report](https://code.google.com/p/chromium/issues/detail?id=178980)
 - [Apple bug report](http://openradar.appspot.com/radar?id=2792401)
 - [IE Bug Report](https://connect.microsoft.com/IE/feedback/details/780246/localstorage-stores-unlimited-amount-of-data-with-unlimited-subdomains-against-spec) (requires login)
+- Opera bug report (closed tracker, bug ID: DSK-383073)
 
 ## MIT License
 
