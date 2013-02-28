@@ -25,8 +25,16 @@ function onMessage (event) {
   /**
    * Calculate the amount of used space in MB
    */
-
-  var usedMB = (frameNum * 5) - 5
+  var usedMB
+  if (navigator.userAgent.indexOf("Opera") == -1) {
+    usedMB = (frameNum * 5) - 5
+  } else {
+    /**
+     * Opera's growth is slightly less than 2MB per frame,
+     * but this is a close enough approximation.
+     */
+    usedMB = (frameNum * 2) - 2
+  }
   mb.innerHTML = usedMB
 
   /**
