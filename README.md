@@ -40,7 +40,8 @@ However, **Chrome, Safari, and IE currently do not implement any such storage li
 I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include with the bug reports I filed. Star the bug reports here:
 
 - [Chromium bug report](https://code.google.com/p/chromium/issues/detail?id=178980)
-- Apple bug report (Radar ID#: 13311988 - how do I make a link to this?)
+- [Apple bug report](http://openradar.appspot.com/radar?id=2792401)
+- How do I file a bug on IE? Their [bug report](http://connect.microsoft.com/IE) page is broken.
 
 ## MIT License
 
