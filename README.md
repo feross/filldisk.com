@@ -4,6 +4,8 @@
 
 #### Check out the [demo](http://www.filldisk.com)!
 
+#### Info about how this works [in this blog post](http://feross.org/fill-disk/).
+
 ## Features:
 
 - Fills up the user's hard disk on Chrome, Safari, and IE.
@@ -37,10 +39,8 @@ However, **Chrome, Safari, and IE currently do not implement any such storage li
 
 I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include with the bug reports I filed. Star the bug reports here:
 
-- link
-- link
-- link
-
+- [Chromium bug report](https://code.google.com/p/chromium/issues/detail?id=178980)
+- Apple bug report (Radar ID#: 13311988 - how do I make a link to this?)
 
 ## MIT License
 
