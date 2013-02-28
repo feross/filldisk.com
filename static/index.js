@@ -65,7 +65,8 @@ function setFrame (src) {
   if (oldFrame) {
     oldFrame.parentElement.removeChild(oldFrame)
   }
-  var frame = document.createElement('.iframe')
+  var frame = document.createElement('iframe')
+  frame.className = 'iframe'
   frame.src = src
   document.getElementsByTagName('body')[0].appendChild(frame)
 }
