@@ -53,6 +53,7 @@
     var n1kb = repeat(n100b, 10)
     var n10kb = repeat(n1kb, 10)
     var n100kb = repeat(n10kb, 10)
+    var n999kb = repeat(n1kb, 999)
     var n2500kb = repeat(n100kb, 25)
 
     /**
@@ -66,7 +67,15 @@
         localStorage['filldisk'] = ''
         localStorage.removeItem('filldisk')
       } else {
-        localStorage['filldisk'] = n2500kb
+        /**
+         * Opera has a limit of slightly less than 2MB
+         * above which it asks for user confirmation.
+         */
+        if (navigator.userAgent.indexOf("Opera") == -1) {
+          localStorage['filldisk'] = n2500kb
+        } else {
+          localStorage['filldisk'] = n999kb
+        }
       }
     } catch (e) {
       console.error('local storage exception')
