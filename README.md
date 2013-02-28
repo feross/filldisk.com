@@ -41,7 +41,7 @@ I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include
 
 - [Chromium bug report](https://code.google.com/p/chromium/issues/detail?id=178980)
 - [Apple bug report](http://openradar.appspot.com/radar?id=2792401)
-- How do I file a bug on IE? Their [bug report](http://connect.microsoft.com/IE) page is broken.
+- [IE Bug Report](https://connect.microsoft.com/IE/feedback/details/780246/localstorage-stores-unlimited-amount-of-data-with-unlimited-subdomains-against-spec) (requires login)
 
 ## MIT License
 
