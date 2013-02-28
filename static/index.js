@@ -61,11 +61,11 @@ function reclaimSpace (event) {
  */
 
 function setFrame (src) {
-  var oldFrame = document.querySelector('iframe')
+  var oldFrame = document.querySelector('.iframe')
   if (oldFrame) {
     oldFrame.parentElement.removeChild(oldFrame)
   }
-  var frame = document.createElement('iframe')
+  var frame = document.createElement('.iframe')
   frame.src = src
   document.getElementsByTagName('body')[0].appendChild(frame)
 }
