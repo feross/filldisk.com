@@ -44,6 +44,12 @@ I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include
 - [IE Bug Report](https://connect.microsoft.com/IE/feedback/details/780246/localstorage-stores-unlimited-amount-of-data-with-unlimited-subdomains-against-spec) (requires login)
 - Opera bug report (closed tracker, bug ID: DSK-383073) - fills to 75MB in my testing, which isn't so bad.
 
+## How to reclaim space (last resort)
+
+If clicking on the "Stop the madness" button fails to give back your disk space, you can reclaim it manually (in Chrome) by going to Preferences > Show advanced settings... > Content settings > All cookies and site data... > search for "filldisk" > Remove all.
+
+I'm less familiar with other browsers, but deleting your cookies and cache will definitely do the trick.
+
 ## MIT License
 
 Copyright (c) 2012 [Feross Aboukhadijeh](http://feross.org)
