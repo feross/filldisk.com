@@ -8,9 +8,9 @@
 
 ## Features:
 
-- Fills up the user's hard disk on Chrome, Safari (iOS and desktop), Opera and IE.
+- Fills up the user's hard disk on Chrome, Safari (iOS and desktop), and IE.
 - Fills up **1 GB every 16 seconds** on my Macbook Pro Retina (with solid state drive)
-- Tested with latest Chrome (25), Safari (6), Opera (12), IE (10).
+- Tested with latest Chrome (25), Safari (6), IE (10).
 - For 32-bit browsers, like Chrome, **the entire browser may crash** before the disk is filled.
 - Does not work on Firefox, since Firefox's implementation of localStorage is smarter.
 - Includes a button to reclaim your disk space ;)
@@ -42,7 +42,7 @@ I wrote [http://www.filldisk.com](fill-disk.js) as a proof-of-concept to include
 - [Chromium bug report](https://code.google.com/p/chromium/issues/detail?id=178980)
 - [Apple bug report](http://openradar.appspot.com/radar?id=2792401)
 - [IE Bug Report](https://connect.microsoft.com/IE/feedback/details/780246/localstorage-stores-unlimited-amount-of-data-with-unlimited-subdomains-against-spec) (requires login)
-- Opera bug report (closed tracker, bug ID: DSK-383073)
+- Opera bug report (closed tracker, bug ID: DSK-383073) - fills to 75MB in my testing, which isn't so bad.
 
 ## MIT License
 
