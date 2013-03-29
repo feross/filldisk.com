@@ -4,15 +4,92 @@
   <meta charset="utf-8">
   <title>Fill up your hard disk with just a single click - using HTML5 localStorage!</title>
   <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-  <style>
-    body { font-family: 'Arvo', serif; }
-    .iframe { border: 1px; height: 50px; width: 100%; }
-    button { font-size: 18px; padding: 10px; }
+<style type="text/css">
+  #container h1 {
+    font-family: "Helvetica", Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 35px;
+    color: #bfbfbf;
+  }
+
+   html, body {
+    background-color: #252525;
+    color: #ebeff1;
+    font-family: "Helvetica", Arial, sans-serif;
+  }
+
+  a {
+    color: #879cac;
+  }
+
+  p {
+    margin-top: 20px;
+    line-height: 130%;
+    font-family: "Helvetica"
+  }
+
+
+  body { font-family: "Helvetica", Arial, sans-serif; }
+    button {  
+        padding: 10px 15px 10px 15px;
+        margin-top: 5px;
+        margin-bottom: 13px;
+        display: inline-block;
+        border-bottom: 1px solid #FFFFFF;
+        text-align:center;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        color: #333333;
+        text-decoration: none;
+        background: #F5F5F5;
+        box-shadow: inset 0px 0px 10px #DDDDDD, 0px 5px #E5E5E5, 0px 5px 3px #777777;
+        font: 11pt 'Helvetica';
+        font-weight: 100;
+      }
+
+      button:hover
+      {
+        padding: 10px 15px 10px 15px;
+        margin-top: 5px;
+        margin-bottom: 13px;
+        display: inline-block;
+        border-bottom: 1px solid #FFFFFF;
+        text-align:center;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        color: #555555;
+        text-decoration: none;
+        background: #FFFFFF;
+        box-shadow: inset 0px 0px 10px #E5E5E5, 0px 5px #EEEEEE, 0px 5px 3px #777777;
+      }
+
+      button:active
+      {
+        padding: 10px 15px 10px 15px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+        display: inline-block;
+        border-bottom: 1px solid #FFFFFF;
+        text-align:center;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        color: #555555;
+        text-decoration: none;
+        background: #F5F5F5;
+        box-shadow: inset 0px 0px 10px #DDDDDD, 0px 0px 3px #777777;
+      }
   </style>
 </head>
 <body>
 
+</head>
+<body>
+
 <a href="https://github.com/feross/filldisk.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+<div id="container" align="center">
 
 <h1>The Joys of HTML5</h1>
 
@@ -24,11 +101,14 @@
 
 <p><img class="cat" src='cats/030827.png'></p>
 
-<button class="reclaim">Stop the madness!</button> (gives your disk space back)
+<button class="reclaim">Stop the madness! I want my space back!</button>
 
-<p>Works in Chrome, Safari (iOS and desktop), Opera and IE. Firefox is immune to this hackery.</p>
+<p>Works in <a href="https://code.google.com/p/chromium/issues/detail?id=178980">Chrome</a>, <a href="http://openradar.appspot.com/radar?id=2792401">Safari</a> (iOS and desktop), Opera, and <a href="https://connect.microsoft.com/IE/feedback/details/780246/localstorage-stores-unlimited-amount-of-data-with-unlimited-subdomains-against-spec">IE</a>. Firefox, however, is immune to this hackery.</p>
 
 <p>Read about <a href="http://feross.org/fill-disk/">how this works</a>. Hacked by <a href="http://feross.org">Feross</a>.</p>
+
+<p><button  onClick="window.location.href='https://github.com/feross/filldisk.js'">Get the Source Code!</button></p>
+
 
 <iframe src="http://ghbtns.com/github-btn.html?user=feross&amp;repo=filldisk.js&amp;type=watch&amp;count=true&amp;size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
@@ -36,10 +116,18 @@
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.filldisk.com" data-via="feross" data-size="large" data-related="feross">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-<p><a href="https://github.com/feross/filldisk.js">Source code</a> is available. Happy hacking!</p>
-
 <script src="/index.js"></script>
+<!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone"></div>
 
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 <audio autoplay loop>
   <source src="/trololo.ogg" type="audio/ogg">
   <source src="/trololo.mp3" type="audio/mpeg">
@@ -71,4 +159,5 @@ scJsHost+
 </script>
 
 </body>
+</div>
 </html>
