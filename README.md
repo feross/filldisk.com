@@ -13,6 +13,7 @@
 - Tested with latest Chrome (25), Safari (6), IE (10).
 - For 32-bit browsers, like Chrome, **the entire browser may crash** before the disk is filled.
 - Does not work on Firefox, since Firefox's implementation of localStorage is smarter.
+- Requires user input on Opera - it asks you how much you want to allow each subdomain.
 - Includes a button to reclaim your disk space ;)
 
 ## How it works
