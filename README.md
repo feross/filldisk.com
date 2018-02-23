@@ -1,5 +1,7 @@
 # `filldisk.js` - Masterful trolling with HTML5 localStorage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/feross/filldisk.com.svg)](https://greenkeeper.io/)
+
 #### Use HTML5 `localStorage` to completely fill up Chrome, Safari, and IE users' hard disks.
 
 #### Check out the [demo](http://www.filldisk.com)!
