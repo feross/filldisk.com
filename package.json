@@ -1,10 +1,7 @@
 {
-  "name": "NewApp",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "stylus": "*",
-    "nib": "*"
-  },
-  "devDependencies": {}
+  "name": "filldisk.com",
+  "version": "0.0.0",
+  "scripts": {
+    "deploy": "git push && ssh future 'cd /home/feross/www/filldisk.com && git pull'"
+  }
 }
